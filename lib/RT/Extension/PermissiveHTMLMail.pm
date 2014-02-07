@@ -80,7 +80,7 @@ that it recognizes.
 Installing this extension also additionally provides a
 C<$AllowDangerousHTML> configuration option.  Setting this alters RT
 from using a whitelist (allowing only HTML tags and attributes which it
-knows to be safe) to using a blacklist (skip tags and ributes which are
+knows to be safe) to using a blacklist (skip tags and attributes which are
 unsafe).  This is B<unsafe> and B<dangerous>, as there are guaranteedly
 further unsafe tags which RT does not know to prevent.  B<Enabling this
 feature allows your RT account to be compromised by a malicious email>.
