@@ -34,6 +34,7 @@ if ( RT->Config->Get( 'AllowDangerousHTML' ) ) {
                 head   => 0,
                 body   => 0,
                 meta   => 0,
+                base   => 0,
             ],
             comment => 0,
         );
