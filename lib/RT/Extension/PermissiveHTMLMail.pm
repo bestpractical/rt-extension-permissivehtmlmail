@@ -3,7 +3,7 @@ use warnings;
 package RT::Extension::PermissiveHTMLMail;
 
 use HTML::Scrubber;
-our $VERSION = '0.01';
+our $VERSION = '1.00';
 
 RT->Config->Set( PreferRichText => 1 );
 RT->Config->Set( ShowTransactionImages => 1);
@@ -44,6 +44,10 @@ if ( RT->Config->Get( 'AllowDangerousHTML' ) ) {
 =head1 NAME
 
 RT-Extension-PermissiveHTMLMail - Allows a greater range of HTML in RT, at the cost of security
+
+=head1 RT VERSION
+
+Works with RT 4.0 and RT 4.2.
 
 =head1 SUMMARY
 
@@ -87,7 +91,6 @@ feature allows your RT account to be compromised by a malicious email>.
 Do not enable it (via C<Set( $AllowDangerousHTML, 1 )>) unless you
 understand the consequences.
 
-
 =head1 INSTALLATION
 
 =over
@@ -102,11 +105,19 @@ May need root permissions
 
 =item Edit your F</opt/rt4/etc/RT_SiteConfig.pm>
 
-Add this line:
+If you are using RT 4.2 or greater, add this line:
+
+    Plugin('RT::Extension::PermissiveHTMLMail');
+
+For RT 4.0, add this line:
 
     Set(@Plugins, qw(RT::Extension::PermissiveHTMLMail));
 
 or add C<RT::Extension::PermissiveHTMLMail> to your existing C<@Plugins> line.
+
+=item Clear your mason cache
+
+    rm -rf /opt/rt4/var/mason_data/obj
 
 =item Restart your webserver
 
@@ -114,19 +125,21 @@ or add C<RT::Extension::PermissiveHTMLMail> to your existing C<@Plugins> line.
 
 =head1 AUTHOR
 
-Alex Vandiver <alexmv@bestpractical.com>
+Best Practical Solutions, LLC E<lt>modules@bestpractical.comE<gt>
 
 =head1 BUGS
 
 All bugs should be reported via email to
-L<bug-RT-Extension-PermissiveHTMLMail@rt.cpan.org|mailto:bug-RT-Extension-PermissiveHTMLMail@rt.cpan.org>
-or via the web at
-L<rt.cpan.org|http://rt.cpan.org/Public/Dist/Display.html?Name=RT-Extension-PermissiveHTMLMail>.
 
+    L<bug-RT-Extension-PermissiveHTMLMail@rt.cpan.org|mailto:bug-RT-Extension-PermissiveHTMLMail@rt.cpan.org>
+
+or via the web at
+
+    L<rt.cpan.org|http://rt.cpan.org/Public/Dist/Display.html?Name=RT-Extension-PermissiveHTMLMail>.
 
 =head1 LICENSE AND COPYRIGHT
 
-This software is Copyright (c) 2013 by Best Practical Solutions, LLC
+This software is Copyright (c) 2014 by Best Practical Solutions
 
 This is free software, licensed under:
 
