@@ -47,7 +47,7 @@ RT-Extension-PermissiveHTMLMail - Allows a greater range of HTML in RT, at the c
 
 =head1 RT VERSION
 
-Works with RT 4.0 and RT 4.2.
+Works with RT 4 and 5.0.
 
 =head1 SUMMARY
 
@@ -139,7 +139,7 @@ or via the web at
 
 =head1 LICENSE AND COPYRIGHT
 
-This software is Copyright (c) 2014 by Best Practical Solutions
+This software is Copyright (c) 2014-2022 by Best Practical Solutions
 
 This is free software, licensed under:
 
